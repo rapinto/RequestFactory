@@ -1,4 +1,4 @@
-RequestVersionManager
+RequestFactory
 
 Version 1.0.0, July 24th, 2015
 
