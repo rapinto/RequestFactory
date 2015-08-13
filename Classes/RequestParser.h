@@ -48,7 +48,7 @@
 - (id)initWithDelegate:(NSObject<RequestParserDelegate>*)_Delegate;
 
 
-- (void (^)(AFHTTPRequestOperation *operation, NSError* error))failureBLock;
+- (void (^)(AFHTTPRequestOperation *operation, NSError* error))failureBock;
 
 
 @end

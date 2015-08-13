@@ -71,7 +71,7 @@
 
 
 
-- (void (^)(AFHTTPRequestOperation *operation, NSError* error))failureBLock
+- (void (^)(AFHTTPRequestOperation *operation, NSError* error))failureBlock
 {
     return ^(AFHTTPRequestOperation *operation, NSError* error)
     {
