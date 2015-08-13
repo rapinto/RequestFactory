@@ -37,7 +37,7 @@
 
 
 
-@synthesize mDelegate;
+@synthesize delegate;
 @synthesize mRequestKey;
 
 
@@ -47,13 +47,13 @@
 
 
 
-- (id)initWithDelegate:(NSObject<RequestParserDelegate> *)delegate
+- (id)initWithDelegate:(NSObject<RequestParserDelegate> *)aDelegate
 {
     self = [super init];
     
     if (self)
     {
-        self.mDelegate = delegate;
+        self.delegate = aDelegate;
     }
     
     return self;
@@ -75,7 +75,7 @@
 {
     return ^(AFHTTPRequestOperation *operation, NSError* error)
     {
-        [self.mDelegate requestDidFailWithError:error forOperation:operation];
+        [self.delegate requestDidFailWithError:error forOperation:operation];
     };
 }
 

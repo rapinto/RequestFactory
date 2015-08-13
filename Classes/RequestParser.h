@@ -40,7 +40,7 @@
 
 
 
-@property (nonatomic, retain) NSObject<RequestParserDelegate>* mDelegate;
+@property (nonatomic, retain) NSObject<RequestParserDelegate>* delegate;
 @property (nonatomic, retain) NSString* mRequestKey;
 
 
