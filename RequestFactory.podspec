@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "RequestFactory"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "Factory patern used to create and parse AFNetworking 2.0 requests"
 
   s.description  = <<-DESC
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/rapinto/RequestFactory.git", :tag => "1.0.1" }
+  s.source       = { :git => "https://github.com/rapinto/RequestFactory.git", :tag => "1.0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

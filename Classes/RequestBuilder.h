@@ -31,6 +31,15 @@
 
 
 
+@class AFHTTPRequestOperation;
+
+
+
+typedef void (^request_error_block)(AFHTTPRequestOperation *operation, NSError *error);
+typedef void (^request_succes_block)(AFHTTPRequestOperation *operation, id responseObject);
+
+
+
 @interface RequestBuilder : NSObject
 
 

@@ -36,7 +36,4 @@
 
 - (void)requestDidFailWithError:(NSError*)error forOperation:(AFHTTPRequestOperation*)operation;
 
-@optional
-- (BOOL)isOverridedParsingError:(NSError*)error forOperation:(AFHTTPRequestOperation*)operation;
-
 @end
