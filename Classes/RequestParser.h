@@ -35,10 +35,6 @@
 @protocol RequestParserDelegate;
 
 
-typedef void (^request_error_block)(AFHTTPRequestOperation *operation, NSError *error);
-typedef void (^request_succes_block)(AFHTTPRequestOperation *operation, id JSON);
-
-
 
 @interface RequestParser : NSObject
 
@@ -51,9 +47,8 @@ typedef void (^request_succes_block)(AFHTTPRequestOperation *operation, id JSON)
 
 - (id)initWithDelegate:(NSObject<RequestParserDelegate>*)_Delegate;
 
-- (void)handleAFNetworkingError:(NSError*)_Error forOperation:(AFHTTPRequestOperation*)_Operation;
 
-- (void (^)(AFHTTPRequestOperation *_Operation, NSError* _Error))failureBLock;
+- (void (^)(AFHTTPRequestOperation *operation, NSError* error))failureBLock;
 
 
 @end

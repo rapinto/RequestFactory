@@ -71,81 +71,14 @@
 
 
 
-- (void (^)(AFHTTPRequestOperation *_Operation, NSError* _Error))failureBLock
+- (void (^)(AFHTTPRequestOperation *operation, NSError* error))failureBLock
 {
-    return ^(AFHTTPRequestOperation *_Operation, NSError* _Error)
+    return ^(AFHTTPRequestOperation *operation, NSError* error)
     {
-        [self handleAFNetworkingError:_Error forOperation:(AFHTTPRequestOperation*)_Operation];
+        [self.mDelegate requestDidFailWithError:error forOperation:operation];
     };
 }
 
-
-
-#pragma mark -
-#pragma mark Error Handling Methods
-
-
-
-- (void)handleAFNetworkingError:(NSError*)error forOperation:(AFHTTPRequestOperation*)operation
-{
-	long statusCode = operation.response.statusCode;
-	
-	if (statusCode == 0)
-	{
-		statusCode = error.code;
-	}
-	
-	// Error already handled by the delegate, do not check status code
-	if ([mDelegate respondsToSelector:@selector(isOverridedParsingError:forOperation:)])
-	{
-		if ([mDelegate isOverridedParsingError:error forOperation:operation])
-		{
-			return;
-		}
-	}
-	
-	switch (statusCode)
-	{
-            // Timeout fire by server
-		case NSURLErrorTimedOut:
-		case NSURLErrorNotConnectedToInternet:
-		case NSURLErrorNetworkConnectionLost:
-        case NSURLErrorCannotFindHost:
-		{
-			[self handleNoConnectionError:error forOperation:operation];
-            break;
-		}
-		case NSURLErrorCancelled:
-        {
-            [self handleRequestCancelledError:error forOperation:operation];
-			break;
-        }
-		
-		default:
-		{
-            [self handleError:error forOperation:operation];
-			break;
-		}
-	}
-}
-
-
-- (void)handleNoConnectionError:(NSError*)error forOperation:(AFHTTPRequestOperation*)operation
-{
-    [self.mDelegate requestDidFailWithError:error forOperation:operation];
-}
-
-
-- (void)handleRequestCancelledError:(NSError*)error forOperation:(AFHTTPRequestOperation*)operation
-{
-    [self.mDelegate requestDidFailWithError:error forOperation:operation];
-}
-
-
-- (void)handleError:(NSError*)error forOperation:(AFHTTPRequestOperation*)operation
-{
-    [self.mDelegate requestDidFailWithError:error forOperation:operation];
-}
 
 
 @end
