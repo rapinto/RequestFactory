@@ -34,6 +34,6 @@
 
 @protocol RequestParserDelegate <NSObject>
 
-- (void)requestDidFailWithError:(NSError*)error forOperation:(AFHTTPRequestOperation*)operation;
+- (BOOL)isHandledRequestDidFailWithError:(NSError*)error forOperation:(AFHTTPRequestOperation*)operation;
 
 @end

@@ -75,7 +75,7 @@
 {
     return ^(AFHTTPRequestOperation *operation, NSError* error)
     {
-        [self.delegate requestDidFailWithError:error forOperation:operation];
+        [self.delegate isHandledRequestDidFailWithError:error forOperation:operation];
     };
 }
 
